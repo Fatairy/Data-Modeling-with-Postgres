@@ -63,7 +63,7 @@ songplay_table_insert = ("""INSERT INTO songplays (start_time, user_id, level, s
 
 user_table_insert = ("""INSERT INTO users 
                         VALUES(%s,%s,%s,%s,%s)
-                        ON CONFLICT (user_id) DO NOTHING
+                        ON CONFLICT (user_id) DO UPDATE SET level=EXCLUDED.level
                         
 """)
 
